@@ -1,0 +1,467 @@
+<html>
+				<title></title>
+				<head>
+								<meta name="viewport" content="width=device-width, initial-scale=1.0">
+								<link rel="stylesheet" href="webstyle.css"></link>
+								<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--<script src="app.js"></script>-->
+				
+								
+								
+								
+				</head>
+				<body id="bdy">
+								
+								
+								
+								
+								
+		<div class="tab-body"> 
+					<div class="tabcontent divactive hm" id="home">
+									<br>
+									<br>				
+									
+									
+									<!--
+									
+								
+													
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>-->
+												</div>
+												
+					<div class="tabcontent divactive snd" id="send">
+		
+</div>
+
+<div class="tabcontent divactive rm" id="rome">
+				<div class="postdiv">
+								<div class="wrapperdiv">	
+				<input type="text" class="textf" id="name" placeholder="Enter your name here">
+				<textarea class="write" id="write" placeholder="Write something here"></textarea>
+				<input type="button" class="postbtn" value="Post" id="pst">
+				</div>
+	</div>
+				
+				
+
+
+
+
+
+
+				
+
+
+				
+				
+</div><!--end original-->
+
+<div class="tabcontent divactive dm" id="dome">
+				
+</div>
+<div class="tabcontent divactive abtsec pm" id="prom">
+				<div class="imgdiv">
+								<img class="me" src="1634980325678.png">
+				</div>
+				<p class="abt"><bold>Aman Khan</bold></p>
+				<p class="digitalcrt">Digital Creator</p>
+				<br>
+				<div class="aboutbox">
+							
+				</div>
+				
+								
+								
+				
+				
+		
+				
+  </div>
+</div> 
+								
+						<nav class="topnav">
+												theunbelievables
+								</nav>
+								
+	
+											
+												
+								
+								
+								<nav class="navbar header" id="header">
+<a href="#" class="navlink"><i class="fa fa-envelope-open-o active btn" style="font-size:30px;" onclick="openTab(event, 'home')"></a></i>
+
+<!--<a href="#" class="navlink"><i class="fa fa-send-o btn" id="send" style="font-size:30px;" onclick="openTab(event, 'send')"></a></i>-->
+
+<a href="#" class="navlink"><i class="fa fa-plus-circle btn" style="font-size:30px;" onclick="openTab(event, 'rome')"></a></i>
+
+<!--<a href="#" class="navlink"><i class="fa fa-heart-o btn" style="font-size:30px;" onclick="openTab(event, 'dome')"></a></i>-->
+
+<a href="#" class="navlink"><i class="fa fa-user-circle-o btn" style="font-size:30px;" onclick="openTab(event, 'prom')"></a></i></nav>
+
+<!--<a href="#" class="navlink"><img class="heart" src="r/bdl.png"></a>
+<a href="#" class="navlink"><img src="adobe_air.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>
+			<a href="#" class="navlink"><img src="portfolio.png"></a>-->
+			
+	
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+  import { getDatabase, set, ref, child, push, onValue, get} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAVWWMkLRAC79kvrx5PpvdkMtgMKmbc1hs",
+    authDomain: "store-4a0c9.firebaseapp.com",
+    projectId: "store-4a0c9",
+    storageBucket: "store-4a0c9.appspot.com",
+    messagingSenderId: "679682903095",
+    appId: "1:679682903095:web:6c0a555b55dd660e5683b2"
+  };
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+
+  const querySnapshot =  getDocs(collection(db, "Users"));
+  
+  
+  
+  
+ document.getElementById("pst").addEventListener("click", function posted(){
+ 
+ setTimeout(relod, 2000)
+ 
+ const date = new Date();
+ var day = date.getDate();
+ var month = date.toLocaleString("default", { month: 'short'});
+ var year = date.getFullYear();
+ 
+ var h = date.getHours();
+ var m = date.getMinutes();
+ 
+  var key = Math.random();
+ let uname = document.getElementById("name").value;
+const post = document.getElementById("write").value;
+  setDoc(doc(db, 'Users',uname+key),{
+  				Written_By: uname,
+  				Wrote: post,
+					Time: day+" "+month+" "+year+" "+h+":"+m
+  				
+  });
+  
+})
+
+var lastScrollTop = 0;
+$(home).scroll(function(){
+  var st = $(this).scrollTop();
+  var banner = $('.header')
+  setTimeout(function(){
+    if (st > lastScrollTop){
+      banner.addClass('barhide');
+    } else {
+      banner.removeClass('barhide');
+    }
+    lastScrollTop = st;
+  }, 500);
+});
+
+/*var b = document.getElementById('home');
+b.onscroll = function() {
+  var currentScrollPos = b.pageYOffset;
+
+  
+  if (currentScrollPos > 20) {
+    document.getElementById("header")
+  } else {
+document.getElementById("header").removeClass("hide");
+  }
+}*/
+
+/*var bar = document.getElementById('header');
+var b = document.getElementById('home');
+if (b.) {
+bar.classList.toggle("hide");			
+}else{
+				
+}*/
+
+function relod(){
+				location.reload();
+}
+
+function renderS(doc){
+let dv = document.createElement('div');
+dv.setAttribute("class", "htt");
+dv.innerHTML+=`
+												<div class="card">
+												<article>${doc.data().Written_By}     Wrote :</article>
+									<hr class="line">
+									<p class="wrote">${doc.data().Wrote}</p>
+									<br>
+									<br>
+									<p class="time">${doc.data().Time}</p>
+									</div>
+									`
+document.getElementById("home").appendChild(dv);
+}
+
+
+let template = ``;
+querySnapshot.then((snap) => {
+snap.docs.forEach(doc => {
+renderS(doc);
+})
+})
+
+/*const data = doc.data();
+template += `
+								<div class="card">
+												<h2>${data.Written_By}</h2>
+												<p>${data.Wrote}</p>
+												</div>
+												`
+document.getElementById("home").innerHTML+=template;
+
+
+});
+})*/
+
+
+
+
+
+/*let template = '';
+querySnapshot.docs.forEach((doc) => {
+const review = doc.data();
+console.log(review.Wrote);
+template += `
+								<div class="card">
+												<h2>${review.Written_By}</h2>
+												<p>${review.Wrote}</p>
+												</div>
+												`
+												});
+											
+											
+										
+												
+											
+document.getElementById("home").innerHTML+=template;*/
+
+
+
+
+/*const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});*/
+
+
+
+  
+
+
+
+</script>
+  
+  
+  
+  
+  
+
+
+ 
+
+  
+												
+											
+								
+								
+								
+								
+				
+				
+				<script>
+
+/*var header = document.getElementsByClassName("header");
+var btns = document.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  
+  });
+}	 */
+
+function openTab(evt, tabName) {
+var i, tabcontent, btns;
+tabcontent = document.getElementsByClassName("tabcontent");
+for(i=0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display="none";
+}
+btns = document.getElementsByClassName("btn");
+for(i =0; i < btns.length; i++) {
+				btns[i].className = btns[i].className.replace(" active", "");
+}
+document.getElementById(tabName).style.display="block";
+ evt.currentTarget.classList.toggle("active");
+}
+
+/*function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("btn");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display="block"
+  evt.currentTarget.className += " active";
+} */
+
+    
+    
+    
+     
+     
+    
+   
+
+    
+    
+    
+
+/*
+tabHeader.getElementsByClassName("active")[0].classList.remove("active");
+    tabsPane[i].classList.add("active");
+    tabBody.getElementsByClassName("first")[0].classList.remove("active");
+    tabBody.getElementsByTagName("div")[i].classList.add("active");
+
+*/
+
+
+
+						</script>
+						
+					<!--<script>
+										area=document.getElementById("write");
+										document.getElementById("pst").addEventListener("click", function posted(){
+		  	act=document.getElementById("home");
+									<!--	function posted(){-->
+										<!--var gt = document.getElementById("write").value;
+									
+										var crt = document.createElement("div");
+									/*	crt.setAttribute("class", "htt");
+										crt.innerHTML=gt;
+										/*act.appendChild(crt)+"<br>";*/
+										
+										var obj = {"nissan":gt};
+
+localStorage.setItem('myStorage', JSON.stringify(obj));
+										
+										
+										
+								});
+								var obj = JSON.parse(localStorage.getItem('myStorage'));
+let w = obj.nissan;
+console.log(w);
+
+
+var crt = document.createElement("div");
+crt.setAttribute("class", "htt");
+crt.innerHTML=w;
+document.getElementById("home").appendChild(crt);
+								
+							
+								
+						
+						</script>-->
+						
+						<script>
+										$('#name').on('keypress keyup keydown', function () { 
+  if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+});
+$('#name').on('keypress keyup keydown', function () { 
+  if ($('#name').val() == "" ) { 
+  				if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+}
+});
+
+$('#write').on('keypress keyup keydown', function () { 
+  if ($('#write').val() == "" ) { 
+  				if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+}
+});
+$('#write').on('keypress keyup keydown', function () { 
+  if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+  } 
+});
+
+
+
+
+
+if ($('#name').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+    }
+    
+    
+if ($('#write').val() == "" ) { 
+    $('#pst').prop('disabled', true); 
+  } 
+  else {   
+    $('#pst').prop('disabled', false); 
+    }
+
+						</script>
+</body>
+</html>
