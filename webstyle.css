@@ -10,7 +10,7 @@
 body{
 			/*	background: url('Moon in the Night iPhone Wallpaper - iPhone Wallpapers.jpeg'); */
 				
-	   	background: url('Backgrounds/You are my ocean.gif');
+	   	/*background: url('Backgrounds/You are my ocean.gif');*/
 				background-size: cover;
 				background-repeat: no-repeat;
 			
@@ -332,6 +332,7 @@ filter: contrast(150%);
 				backdrop-filter: blur(10px);
 }
 .hm{
+background: url('You are my ocean.gif');
 				
 }
 .snd{
